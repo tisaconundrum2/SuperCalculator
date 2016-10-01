@@ -4,11 +4,36 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
 public class MainActivity extends AppCompatActivity {
+    private EditText op1, op2;
+    private Button btnAdd, btnSub, btnMul, btnDiv;
+    private TextView txtResult;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        op1 = (EditText) findViewById(R.id.op1);
+        op2 = (EditText) findViewById(R.id.op2);
+        btnAdd = (Button) findViewById(R.id.btnAdd);
+        btnSub = (Button) findViewById(R.id.btnSub);
+        btnMul = (Button) findViewById(R.id.btnMul);
+        btnDiv = (Button) findViewById(R.id.btnDiv);
+        txtResult = (TextView) findViewById(R.id.txtResult);
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double oper1 = Double.parseDouble(op1.getText().toString());
+                double oper2 = Double.parseDouble(op2.getText().toString());
+                txtResult.setText(Double.toString(oper1 + oper2));
+            }
+        });
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
