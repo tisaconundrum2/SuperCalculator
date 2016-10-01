@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:app2=""
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_main"
     android:layout_width="match_parent"
@@ -22,15 +21,24 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="SuperCalculator"
 	    android:gravity="center"
-        android:id="@+id/txtResult" />
+        android:id="@+id/Title" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id = "@+id/disp"
-        android:layout_marginTop="25dp" />
+        android:id = "@+id/op1"
+        android:layout_marginTop="25dp"
+        android:gravity="right" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/op2"
+        android:gravity="right" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -38,28 +46,28 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:text="C"
+            android:text="+"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnClear"
+            android:id="@+id/btnAdd"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceLarge"
             />
 
         <Button
-            android:text="()"
+            android:text="-"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnParen"
+            android:id="@+id/btnSub"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceLarge"
             />
 
         <Button
-            android:text="%"
+            android:text="*"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnPercent"
+            android:id="@+id/btnMul"
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
 
@@ -71,5 +79,25 @@
             android:layout_weight="1"
             android:textAppearance="?android:attr/textAppearanceLarge"/>
     </LinearLayout>
+
+    <TextView
+        android:text="Result: "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Result"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#000"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtResult"
+        android:gravity="center"
+        android:fontFamily="sans-serif"
+        android:textColor="#00A"
+        android:textSize="20sp" />
 
 </LinearLayout>
