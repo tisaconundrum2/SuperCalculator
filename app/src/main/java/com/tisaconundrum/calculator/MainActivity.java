@@ -34,6 +34,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double oper1 = Double.parseDouble(op1.getText().toString());
+                double oper2 = Double.parseDouble(op2.getText().toString());
+                txtResult.setText(Double.toString(oper1 - oper2));
+            }
+        });
+
+        btnMul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double oper1 = Double.parseDouble(op1.getText().toString());
+                double oper2 = Double.parseDouble(op2.getText().toString());
+                txtResult.setText(Double.toString(oper1 * oper2));
+            }
+        });
+
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double oper1 = Double.parseDouble(op1.getText().toString());
+                double oper2 = Double.parseDouble(op2.getText().toString());
+                txtResult.setText(Double.toString(oper1 / oper2));
+            }
+        });
+
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
