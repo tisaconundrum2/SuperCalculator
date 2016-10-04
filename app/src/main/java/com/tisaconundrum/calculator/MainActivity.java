@@ -7,81 +7,115 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnZero, btnAdd, btnSub, btnMul, btnDiv, btnClear, btnEqual;
-    EditText disp;
-    int op1;
-    int op2;
-    String optr;
+    private EditText operand1;
+    private EditText operand2;
+    private Button btnAddition;
+    private Button btnSubtraction;
+    private Button btnDivision;
+    private Button btnMultiplication;
+    private Button btnClear;
+    private TextView txtResult;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnAdd   = (Button) findViewById(R.id.btnAdd);
-        btnSub   = (Button) findViewById(R.id.btnSub);
-        btnMul   = (Button) findViewById(R.id.btnMul);
-        btnDiv   = (Button) findViewById(R.id.btnDiv);
-        btnOne   = (Button) findViewById(R.id.btnOne);
-        btnTwo   = (Button) findViewById(R.id.btnTwo);
-        btnThree = (Button) findViewById(R.id.btnThree);
-        btnFour  = (Button) findViewById(R.id.btnFour);
-        btnFive  = (Button) findViewById(R.id.btnFive);
-        btnSix   = (Button) findViewById(R.id.btnSix);
-        btnSeven = (Button) findViewById(R.id.btnSeven);
-        btnEight = (Button) findViewById(R.id.btnEight);
-        btnNine  = (Button) findViewById(R.id.btnNine);
-        btnZero  = (Button) findViewById(R.id.btnZero);
-        btnEqual = (Button) findViewById(R.id.btnEqual);
+        operand1 = (EditText) findViewById(R.id.editOperand1);
+        operand2 = (EditText) findViewById(R.id.editOperand2);
+        btnAddition = (Button) findViewById(R.id.btnAddition);
+        btnSubtraction = (Button) findViewById(R.id.btnSubtraction);
+        btnDivision = (Button) findViewById(R.id.btnDivision);
+        btnMultiplication = (Button) findViewById(R.id.btnMultiplication);
         btnClear = (Button) findViewById(R.id.btnClear);
-        disp =     (EditText) findViewById(R.id.disp);
 
-        try{
-            btnOne.setOnClickListener((View.OnClickListener) this);
-            btnTwo.setOnClickListener((View.OnClickListener) this);
-            btnThree.setOnClickListener((View.OnClickListener) this);
-            btnFour.setOnClickListener((View.OnClickListener) this);
-            btnFive.setOnClickListener((View.OnClickListener) this);
-            btnSix.setOnClickListener((View.OnClickListener) this);
-            btnSeven.setOnClickListener((View.OnClickListener) this);
-            btnEight.setOnClickListener((View.OnClickListener) this);
-            btnNine.setOnClickListener((View.OnClickListener) this);
-            btnZero.setOnClickListener((View.OnClickListener) this);
-            btnClear.setOnClickListener((View.OnClickListener) this);
-            btnEqual.setOnClickListener((View.OnClickListener) this);
-        } catch(Exception ignored){}
-    }
+        txtResult = (TextView) findViewById(R.id.txtResult);
 
-    public void operation(){
-        if (optr.equals("+")){
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 + op2;
-            disp.setText(Integer.toString(op1));
-        }
+        btnAddition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if((operand1.getText().length()>0) && (operand2.getText().length()>0)) {
+                    double oper1 = Double.parseDouble(operand1.getText().toString());
+                    double oper2 = Double.parseDouble(operand2.getText().toString());
 
-        else if (optr.equals("-")){
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 - op2;
-            disp.setText(Integer.toString(op1));
-        }
+                    double theResult = oper1 + oper2;
+                    txtResult.setText(Double.toString(theResult));
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter numbers in both operand fields", Toast.LENGTH_LONG).show();
+                }
 
-        else if (optr.equals("x")){
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 * op2;
-            disp.setText(Integer.toString(op1));
-        }
+            }
+        });
 
-        else if (optr.equals("/")){
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 / op2;
-            disp.setText(Integer.toString(op1));
-        }
+        btnSubtraction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if((operand1.getText().length()>0) && (operand2.getText().length()>0)) {
+                    double oper1 = Double.parseDouble(operand1.getText().toString());
+                    double oper2 = Double.parseDouble(operand2.getText().toString());
+
+                    double theResult = oper1 - oper2;
+                    txtResult.setText(Double.toString(theResult));
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter numbers in both operand fields", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
+        btnDivision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if((operand1.getText().length()>0) && (operand2.getText().length()>0)) {
+
+                    double oper1 = Double.parseDouble(operand1.getText().toString());
+                    double oper2 = Double.parseDouble(operand2.getText().toString());
+
+                    double theResult = oper1 / oper2;
+                    txtResult.setText(Double.toString(theResult));
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter numbers in both operand fields", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
+        btnMultiplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if((operand1.getText().length()>0) && (operand2.getText().length()>0)) {
+
+                    double oper1 = Double.parseDouble(operand1.getText().toString());
+                    double oper2 = Double.parseDouble(operand2.getText().toString());
+
+                    double theResult = oper1 * oper2;
+                    txtResult.setText(Double.toString(theResult));
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter numbers in both operand fields", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operand1.setText("");
+                operand2.setText("");
+                txtResult.setText("0.00");
+                operand1.requestFocus();
+
+            }
+        });
+
     }
 
     @Override
