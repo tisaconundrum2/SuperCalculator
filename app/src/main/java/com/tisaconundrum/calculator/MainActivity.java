@@ -105,12 +105,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View arg0) {
         Editable str = disp.getText();
         switch (arg0.getId()) {
+            case R.id.zero:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(zero.getText());
+                disp.setText(str);
+                break;
             case R.id.one:
                 if (op2 != 0) {
                     op2 = 0;
                     disp.setText("");
                 }
-                str = str.append(two.getText());
+                str = str.append(one.getText());
                 disp.setText(str);
                 break;
             case R.id.two:
@@ -158,7 +166,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     op2 = 0;
                     disp.setText("");
                 }
-                str = str.append(eight.getText());
+                str = str.append(seven.getText());
                 disp.setText(str);
                 break;
             case R.id.eight:
@@ -166,7 +174,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     op2 = 0;
                     disp.setText("");
                 }
-                str = str.append(nine.getText());
+                str = str.append(eight.getText());
                 disp.setText(str);
 
                 break;
@@ -175,7 +183,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     op2 = 0;
                     disp.setText("");
                 }
-                str = str.append(zero.getText());
+                str = str.append(nine.getText());
                 disp.setText(str);
 
                 break;
