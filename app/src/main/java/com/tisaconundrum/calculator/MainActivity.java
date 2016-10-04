@@ -9,13 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import static android.R.attr.x;
-import static com.tisaconundrum.calculator.R.id.btnAdd;
-import static com.tisaconundrum.calculator.R.id.btnMul;
-import static com.tisaconundrum.calculator.R.id.btnSub;
-import static com.tisaconundrum.calculator.R.id.op1;
-import static com.tisaconundrum.calculator.R.id.op2;
-
 
 public abstract class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText disp;
@@ -49,8 +42,6 @@ public abstract class MainActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        op1 = (EditText) findViewById(op1);
-        op2 = (EditText) findViewById(op2);
 
         txtResult    = (TextView) findViewById(R.id.txtResult);
         btnClear     = (Button) findViewById(R.id.btnClear);
@@ -73,48 +64,60 @@ public abstract class MainActivity extends AppCompatActivity implements View.OnC
         btnZero      = (Button) findViewById(R.id.btnZero);
         btnPlusMinus = (Button) findViewById(R.id.btnPlusMinus);
         btnEqual     = (Button) findViewById(R.id.btnEqual);
+        disp         = (EditText) findViewById(R.id.disp);
 
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                double oper1 = Double.parseDouble(op1.getText().toString());
-                double oper2 = Double.parseDouble(op2.getText().toString());
-                txtResult.setText(Double.toString(oper1 + oper2));
-            }
-        });
-
-        btnSub.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                double oper1 = Double.parseDouble(op1.getText().toString());
-                double oper2 = Double.parseDouble(op2.getText().toString());
-                txtResult.setText(Double.toString(oper1 - oper2));
-            }
-        });
-
-        btnMul.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                double oper1 = Double.parseDouble(op1.getText().toString());
-                double oper2 = Double.parseDouble(op2.getText().toString());
-                txtResult.setText(Double.toString(oper1 * oper2));
-            }
-        });
-
-        btnDiv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                double oper1 = Double.parseDouble(op1.getText().toString());
-                double oper2 = Double.parseDouble(op2.getText().toString());
-                txtResult.setText(Double.toString(oper1 / oper2));
-            }
-        });
-
-
-
-
+        try{
+            txtResult.setOnClickListener(this);
+            btnClear.setOnClickListener(this);
+            btnParen.setOnClickListener(this);
+            btnPercent.setOnClickListener(this);
+            btnDiv.setOnClickListener(this);
+            btnOne.setOnClickListener(this);
+            btnTwo.setOnClickListener(this);
+            btnThree.setOnClickListener(this);
+            btnMul.setOnClickListener(this);
+            btnFour.setOnClickListener(this);
+            btnFive.setOnClickListener(this);
+            btnSix.setOnClickListener(this);
+            btnSub.setOnClickListener(this);
+            btnSeven.setOnClickListener(this);
+            btnEight.setOnClickListener(this);
+            btnNine.setOnClickListener(this);
+            btnAdd.setOnClickListener(this);
+            btnDot.setOnClickListener(this);
+            btnZero.setOnClickListener(this);
+            btnPlusMinus.setOnClickListener(this);
+            btnEqual.setOnClickListener(this);
+            disp.setOnClickListener(this);
+        } catch (Exception ignored){
+        }
     }
+
+    public void operation() {
+        if (optr.equals("+")) {
+            op2 = Integer.parseInt(disp.getText().toString());
+            disp.setText("");
+            op1 = op1 + op2;
+            disp.setText("Result : " + Integer.toString(op1));
+        } else if (optr.equals("-")) {
+            op2 = Integer.parseInt(disp.getText().toString());
+            disp.setText("");
+            op1 = op1 - op2;
+            disp.setText("Result : " + Integer.toString(op1));
+        } else if (optr.equals("x")) {
+            op2 = Integer.parseInt(disp.getText().toString());
+            disp.setText("");
+            op1 = op1 * op2;
+            disp.setText("Result : " + Integer.toString(op1));
+        } else if (optr.equals("÷")) {
+            op2 = Integer.parseInt(disp.getText().toString());
+            disp.setText("");
+            op1 = op1 / op2;
+            disp.setText("Result : " + Integer.toString(op1));
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
