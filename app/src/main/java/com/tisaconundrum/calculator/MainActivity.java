@@ -66,31 +66,31 @@ public abstract class MainActivity extends AppCompatActivity implements View.OnC
         disp         = (EditText) findViewById(R.id.disp);
 
 
-        try{
-            txtResult.setOnClickListener(this);
-            btnClear.setOnClickListener(this);
-            btnParen.setOnClickListener(this);
-            btnPercent.setOnClickListener(this);
-            btnDiv.setOnClickListener(this);
-            btnOne.setOnClickListener(this);
-            btnTwo.setOnClickListener(this);
-            btnThree.setOnClickListener(this);
-            btnMul.setOnClickListener(this);
-            btnFour.setOnClickListener(this);
-            btnFive.setOnClickListener(this);
-            btnSix.setOnClickListener(this);
-            btnSub.setOnClickListener(this);
-            btnSeven.setOnClickListener(this);
-            btnEight.setOnClickListener(this);
-            btnNine.setOnClickListener(this);
-            btnAdd.setOnClickListener(this);
-            btnDot.setOnClickListener(this);
-            btnZero.setOnClickListener(this);
-            btnPlusMinus.setOnClickListener(this);
-            btnEqual.setOnClickListener(this);
-            disp.setOnClickListener(this);
-        } catch (Exception ignored){
-        }
+//        try{
+//            txtResult.setOnClickListener(this);
+//            btnClear.setOnClickListener(this);
+//            btnParen.setOnClickListener(this);
+//            btnPercent.setOnClickListener(this);
+//            btnDiv.setOnClickListener(this);
+//            btnOne.setOnClickListener(this);
+//            btnTwo.setOnClickListener(this);
+//            btnThree.setOnClickListener(this);
+//            btnMul.setOnClickListener(this);
+//            btnFour.setOnClickListener(this);
+//            btnFive.setOnClickListener(this);
+//            btnSix.setOnClickListener(this);
+//            btnSub.setOnClickListener(this);
+//            btnSeven.setOnClickListener(this);
+//            btnEight.setOnClickListener(this);
+//            btnNine.setOnClickListener(this);
+//            btnAdd.setOnClickListener(this);
+//            btnDot.setOnClickListener(this);
+//            btnZero.setOnClickListener(this);
+//            btnPlusMinus.setOnClickListener(this);
+//            btnEqual.setOnClickListener(this);
+//            disp.setOnClickListener(this);
+//        } catch (Exception ignored){
+//        }
     }
 
 //    public void operation() {
