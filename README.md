@@ -14,5 +14,5 @@ CS 399 - Android Development [Super Calculator]
 - [ ] Turning it sideways
 
 <br>Necessary files
-<br>.\SuperCalculator\app\src\main\res\layout\\*.*
+<br>.\SuperCalculator\app\src\main\res\layout\\\*.*
 <br>.\SuperCalculator\app\src\main\java\com\tisaconundrum\calculator\\*.*
