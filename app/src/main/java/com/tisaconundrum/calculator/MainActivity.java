@@ -2,7 +2,6 @@ package com.tisaconundrum.calculator;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,7 +43,6 @@ public abstract class MainActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtResult    = (TextView) findViewById(R.id.txtResult);
         btnClear     = (Button) findViewById(R.id.btnClear);
         btnParen     = (Button) findViewById(R.id.btnParen);
         btnPercent   = (Button) findViewById(R.id.btnPercent);
@@ -95,194 +93,194 @@ public abstract class MainActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    public void operation() {
-        if (optr.equals("+")) {
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 + op2;
-            disp.setText("Result : " + Integer.toString(op1));
-        } else if (optr.equals("-")) {
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 - op2;
-            disp.setText("Result : " + Integer.toString(op1));
-        } else if (optr.equals("x")) {
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 * op2;
-            disp.setText("Result : " + Integer.toString(op1));
-        } else if (optr.equals("÷")) {
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 / op2;
-            disp.setText("Result : " + Integer.toString(op1));
-        }
-    }
+//    public void operation() {
+//        if (optr.equals("+")) {
+//            op2 = Integer.parseInt(disp.getText().toString());
+//            disp.setText("");
+//            op1 = op1 + op2;
+//            disp.setText("Result : " + Integer.toString(op1));
+//        } else if (optr.equals("-")) {
+//            op2 = Integer.parseInt(disp.getText().toString());
+//            disp.setText("");
+//            op1 = op1 - op2;
+//            disp.setText("Result : " + Integer.toString(op1));
+//        } else if (optr.equals("x")) {
+//            op2 = Integer.parseInt(disp.getText().toString());
+//            disp.setText("");
+//            op1 = op1 * op2;
+//            disp.setText("Result : " + Integer.toString(op1));
+//        } else if (optr.equals("÷")) {
+//            op2 = Integer.parseInt(disp.getText().toString());
+//            disp.setText("");
+//            op1 = op1 / op2;
+//            disp.setText("Result : " + Integer.toString(op1));
+//        }
+//    }
 
-    @Override public void onClick(View arg0) {
-        Editable str = disp.getText();
-        switch (arg0.getId()) {
-            case R.id.btnOne:
-                if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                }
-                str = str.append(btnTwo.getText());
-                disp.setText(str);
-                break;
-            case R.id.btnTwo:
-                if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                }
-                str = str.append(btnTwo.getText());
-                disp.setText(str);
-                break;
-            case R.id.btnThree:
-                if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                }
-                str = str.append(btnThree.getText());
-                disp.setText(str);
-                break;
-            case R.id.btnFour:
-                if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                }
-                str = str.append(btnFour.getText());
-                disp.setText(str);
-                break;
-            case R.id.btnFive:
-                if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                }
-                str = str.append(btnFive.getText());
-                disp.setText(str);
-                break;
-            case R.id.btnSix:
-                if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                }
-                str = str.append(btnSix.getText());
-                disp.setText(str);
-                break;
-            case R.id.btnSeven:
-                if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                }
-                str = str.append(btnEight.getText());
-                disp.setText(str);
-                break;
-            case R.id.btnEight:
-                if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                }
-                str = str.append(btnNine.getText());
-                disp.setText(str);
-                break;
-            case R.id.btnNine:
-                if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                }
-                str = str.append(btnZero.getText());
-                disp.setText(str);
-                break;
-            case R.id.btnClear:
-                op1 = 0;
-                op2 = 0;
-                disp.setText("");
-                disp.setHint("Perform Operation :)");
-                break;
-            case R.id.btnAdd:
-                optr = "+";
-                if (op1 == 0) {
-                    op1 = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                } else if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                } else {
-                    op2 = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                    op1 = op1 + op2;
-                    disp.setText("Result : " + Integer.toString(op1));
-                }
-                break;
-            case R.id.btnSub:
-                optr = "-";
-                if (op1 == 0) {
-                    op1 = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                } else if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                } else {
-                    op2 = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                    op1 = op1 - op2;
-                    disp.setText("Result : " + Integer.toString(op1));
-                }
-                break;
-            case R.id.btnMul:
-                optr = "*";
-                if (op1 == 0) {
-                    op1 = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                } else if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                } else {
-                    op2 = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                    op1 = op1 * op2;
-                    disp.setText("Result : " + Integer.toString(op1));
-                }
-                break;
-            case R.id.btnDiv:
-                optr = "/";
-                if (op1 == 0) {
-                    op1 = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                } else if (op2 != 0) {
-                    op2 = 0;
-                    disp.setText("");
-                } else {
-                    op2 = Integer.parseInt(disp.getText().toString());
-                    disp.setText("");
-                    op1 = op1 / op2;
-                    disp.setText("Result : " + Integer.toString(op1));
-                }
-                break;
-            case R.id.btnEqual:
-                if (!optr.equals(null)) {
-                    if (op2 != 0) {
-                        if (optr.equals("+")) {
-                            disp.setText(""); /*op1 = op1 + op2;*/
-                            disp.setText("Result : " + Integer.toString(op1));
-                        } else if (optr.equals("-")) {
-                            disp.setText(""); /* op1 = op1 - op2;*/
-                            disp.setText("Result : " + Integer.toString(op1));
-                        } else if (optr.equals("*")) {
-                            disp.setText(""); /* op1 = op1 * op2;*/
-                            disp.setText("Result : " + Integer.toString(op1));
-                        } else if (optr.equals("/")) {
-                            disp.setText(""); /* op1 = op1 / op2;*/
-                            disp.setText("Result : " + Integer.toString(op1));
-                        }
-                    } else {
-                        operation();
-                    }
-                }
-                break;
-        }
-    }
+//    @Override public void onClick(View arg0) {
+//        Editable str = disp.getText();
+//        switch (arg0.getId()) {
+//            case R.id.btnOne:
+//                if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                }
+//                str = str.append(btnTwo.getText());
+//                disp.setText(str);
+//                break;
+//            case R.id.btnTwo:
+//                if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                }
+//                str = str.append(btnTwo.getText());
+//                disp.setText(str);
+//                break;
+//            case R.id.btnThree:
+//                if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                }
+//                str = str.append(btnThree.getText());
+//                disp.setText(str);
+//                break;
+//            case R.id.btnFour:
+//                if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                }
+//                str = str.append(btnFour.getText());
+//                disp.setText(str);
+//                break;
+//            case R.id.btnFive:
+//                if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                }
+//                str = str.append(btnFive.getText());
+//                disp.setText(str);
+//                break;
+//            case R.id.btnSix:
+//                if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                }
+//                str = str.append(btnSix.getText());
+//                disp.setText(str);
+//                break;
+//            case R.id.btnSeven:
+//                if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                }
+//                str = str.append(btnEight.getText());
+//                disp.setText(str);
+//                break;
+//            case R.id.btnEight:
+//                if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                }
+//                str = str.append(btnNine.getText());
+//                disp.setText(str);
+//                break;
+//            case R.id.btnNine:
+//                if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                }
+//                str = str.append(btnZero.getText());
+//                disp.setText(str);
+//                break;
+//            case R.id.btnClear:
+//                op1 = 0;
+//                op2 = 0;
+//                disp.setText("");
+//                disp.setHint("Perform Operation :)");
+//                break;
+//            case R.id.btnAdd:
+//                optr = "+";
+//                if (op1 == 0) {
+//                    op1 = Integer.parseInt(disp.getText().toString());
+//                    disp.setText("");
+//                } else if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                } else {
+//                    op2 = Integer.parseInt(disp.getText().toString());
+//                    disp.setText("");
+//                    op1 = op1 + op2;
+//                    disp.setText("Result : " + Integer.toString(op1));
+//                }
+//                break;
+//            case R.id.btnSub:
+//                optr = "-";
+//                if (op1 == 0) {
+//                    op1 = Integer.parseInt(disp.getText().toString());
+//                    disp.setText("");
+//                } else if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                } else {
+//                    op2 = Integer.parseInt(disp.getText().toString());
+//                    disp.setText("");
+//                    op1 = op1 - op2;
+//                    disp.setText("Result : " + Integer.toString(op1));
+//                }
+//                break;
+//            case R.id.btnMul:
+//                optr = "*";
+//                if (op1 == 0) {
+//                    op1 = Integer.parseInt(disp.getText().toString());
+//                    disp.setText("");
+//                } else if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                } else {
+//                    op2 = Integer.parseInt(disp.getText().toString());
+//                    disp.setText("");
+//                    op1 = op1 * op2;
+//                    disp.setText("Result : " + Integer.toString(op1));
+//                }
+//                break;
+//            case R.id.btnDiv:
+//                optr = "/";
+//                if (op1 == 0) {
+//                    op1 = Integer.parseInt(disp.getText().toString());
+//                    disp.setText("");
+//                } else if (op2 != 0) {
+//                    op2 = 0;
+//                    disp.setText("");
+//                } else {
+//                    op2 = Integer.parseInt(disp.getText().toString());
+//                    disp.setText("");
+//                    op1 = op1 / op2;
+//                    disp.setText("Result : " + Integer.toString(op1));
+//                }
+//                break;
+//            case R.id.btnEqual:
+//                if (!optr.equals(null)) {
+//                    if (op2 != 0) {
+//                        if (optr.equals("+")) {
+//                            disp.setText(""); /*op1 = op1 + op2;*/
+//                            disp.setText("Result : " + Integer.toString(op1));
+//                        } else if (optr.equals("-")) {
+//                            disp.setText(""); /* op1 = op1 - op2;*/
+//                            disp.setText("Result : " + Integer.toString(op1));
+//                        } else if (optr.equals("*")) {
+//                            disp.setText(""); /* op1 = op1 * op2;*/
+//                            disp.setText("Result : " + Integer.toString(op1));
+//                        } else if (optr.equals("/")) {
+//                            disp.setText(""); /* op1 = op1 / op2;*/
+//                            disp.setText("Result : " + Integer.toString(op1));
+//                        }
+//                    } else {
+//                        operation();
+//                    }
+//                }
+//                break;
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
