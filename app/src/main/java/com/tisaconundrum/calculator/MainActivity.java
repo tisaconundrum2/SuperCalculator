@@ -17,7 +17,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_main);
         one = (Button) findViewById(R.id.one);
         two = (Button) findViewById(R.id.two);
         three = (Button) findViewById(R.id.three);
@@ -69,31 +69,36 @@ public class MainActivity extends Activity implements View.OnClickListener {
             div.setOnClickListener(this);
 
             equal.setOnClickListener(this);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
     }
     public void operation() {
-        if (optr.equals("+")) {
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 + op2;
-            disp.setText("Result : " + Integer.toString(op1));
-        } else if (optr.equals("-")) {
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 - op2;
-            disp.setText("Result : " + Integer.toString(op1));
-        } else if (optr.equals("*")) {
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 * op2;
-            disp.setText("Result : " + Integer.toString(op1));
-        } else if (optr.equals("/")) {
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 / op2;
-            disp.setText("Result : " + Integer.toString(op1));
+        switch (optr) {
+            case "+":
+                op2 = Integer.parseInt(disp.getText().toString());
+                disp.setText("");
+                op1 = op1 + op2;
+                disp.setText("Result : " + Integer.toString(op1));
+                break;
+            case "-":
+                op2 = Integer.parseInt(disp.getText().toString());
+                disp.setText("");
+                op1 = op1 - op2;
+                disp.setText("Result : " + Integer.toString(op1));
+                break;
+            case "*":
+                op2 = Integer.parseInt(disp.getText().toString());
+                disp.setText("");
+                op1 = op1 * op2;
+                disp.setText("Result : " + Integer.toString(op1));
+                break;
+            case "/":
+                op2 = Integer.parseInt(disp.getText().toString());
+                disp.setText("");
+                op1 = op1 / op2;
+                disp.setText("Result : " + Integer.toString(op1));
+                break;
         }
     }
     @Override
@@ -244,25 +249,30 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.equal:
                 if (!optr.equals(null)) {
                     if (op2 != 0) {
-                        if (optr.equals("+")) {
-                            disp.setText("");
+                        switch (optr) {
+                            case "+":
+                                disp.setText("");
             /*op1 = op1 + op2;*/
-                            disp.setText("Result : " + Integer.toString(op1));
-                        } else if (optr.equals("-")) {
-                            disp.setText("");
+                                disp.setText("Result : " + Integer.toString(op1));
+                                break;
+                            case "-":
+                                disp.setText("");
             /*
             							op1 = op1 - op2;*/
-                            disp.setText("Result : " + Integer.toString(op1));
-                        } else if (optr.equals("*")) {
-                            disp.setText("");
+                                disp.setText("Result : " + Integer.toString(op1));
+                                break;
+                            case "*":
+                                disp.setText("");
             /*
             							op1 = op1 * op2;*/
-                            disp.setText("Result : " + Integer.toString(op1));
-                        } else if (optr.equals("/")) {
-                            disp.setText("");
+                                disp.setText("Result : " + Integer.toString(op1));
+                                break;
+                            case "/":
+                                disp.setText("");
             /*
             							op1 = op1 / op2;*/
-                            disp.setText("Result : " + Integer.toString(op1));
+                                disp.setText("Result : " + Integer.toString(op1));
+                                break;
                         }
                     } else {
                         operation();
