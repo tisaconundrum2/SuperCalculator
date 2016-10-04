@@ -1,16 +1,14 @@
 package com.tisaconundrum.calculator;
-
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
-    Button btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnZero, btnAdd, btnSub, btnMul, btnDiv, btnClear, btnEqual;
+    Button one, two, three, four, five, six, seven, eight, nine, zero, add, sub, mul, div, cancel, equal;
     EditText disp;
     int op1;
     int op2;
@@ -20,89 +18,275 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnAdd   = (Button) findViewById(R.id.btnAdd);
-        btnSub   = (Button) findViewById(R.id.btnSub);
-        btnMul   = (Button) findViewById(R.id.btnMul);
-        btnDiv   = (Button) findViewById(R.id.btnDiv);
-        btnOne   = (Button) findViewById(R.id.btnOne);
-        btnTwo   = (Button) findViewById(R.id.btnTwo);
-        btnThree = (Button) findViewById(R.id.btnThree);
-        btnFour  = (Button) findViewById(R.id.btnFour);
-        btnFive  = (Button) findViewById(R.id.btnFive);
-        btnSix   = (Button) findViewById(R.id.btnSix);
-        btnSeven = (Button) findViewById(R.id.btnSeven);
-        btnEight = (Button) findViewById(R.id.btnEight);
-        btnNine  = (Button) findViewById(R.id.btnNine);
-        btnZero  = (Button) findViewById(R.id.btnZero);
-        btnEqual = (Button) findViewById(R.id.btnEqual);
-        btnClear = (Button) findViewById(R.id.btnClear);
-        disp =     (EditText) findViewById(R.id.disp);
+        one = (Button) findViewById(R.id.one);
+        two = (Button) findViewById(R.id.two);
+        three = (Button) findViewById(R.id.three);
+        four = (Button) findViewById(R.id.four);
+        five = (Button) findViewById(R.id.five);
+        six = (Button) findViewById(R.id.six);
+        seven = (Button) findViewById(R.id.seven);
+        eight = (Button) findViewById(R.id.eight);
+        nine = (Button) findViewById(R.id.nine);
+        zero = (Button) findViewById(R.id.zero);
+        add = (Button) findViewById(R.id.add);
+        sub = (Button) findViewById(R.id.sub);
+        mul = (Button) findViewById(R.id.mul);
+        div = (Button) findViewById(R.id.div);
+        cancel = (Button) findViewById(R.id.cancel);
+        equal = (Button) findViewById(R.id.equal);
 
-        try{
-            btnOne.setOnClickListener((View.OnClickListener) this);
-            btnTwo.setOnClickListener((View.OnClickListener) this);
-            btnThree.setOnClickListener((View.OnClickListener) this);
-            btnFour.setOnClickListener((View.OnClickListener) this);
-            btnFive.setOnClickListener((View.OnClickListener) this);
-            btnSix.setOnClickListener((View.OnClickListener) this);
-            btnSeven.setOnClickListener((View.OnClickListener) this);
-            btnEight.setOnClickListener((View.OnClickListener) this);
-            btnNine.setOnClickListener((View.OnClickListener) this);
-            btnZero.setOnClickListener((View.OnClickListener) this);
-            btnClear.setOnClickListener((View.OnClickListener) this);
-            btnEqual.setOnClickListener((View.OnClickListener) this);
-        } catch(Exception ignored){}
-    }
+        disp = (EditText) findViewById(R.id.display);
 
-    public void operation(){
-        if (optr.equals("+")){
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 + op2;
-            disp.setText(Integer.toString(op1));
-        }
+        try {
+            one.setOnClickListener(this);
 
-        else if (optr.equals("-")){
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 - op2;
-            disp.setText(Integer.toString(op1));
-        }
+            two.setOnClickListener(this);
 
-        else if (optr.equals("x")){
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 * op2;
-            disp.setText(Integer.toString(op1));
-        }
+            three.setOnClickListener(this);
 
-        else if (optr.equals("/")){
-            op2 = Integer.parseInt(disp.getText().toString());
-            disp.setText("");
-            op1 = op1 / op2;
-            disp.setText(Integer.toString(op1));
+            four.setOnClickListener(this);
+
+            five.setOnClickListener(this);
+
+            six.setOnClickListener(this);
+
+            seven.setOnClickListener(this);
+
+            eight.setOnClickListener(this);
+
+            nine.setOnClickListener(this);
+
+            zero.setOnClickListener(this);
+
+            cancel.setOnClickListener(this);
+
+            add.setOnClickListener(this);
+
+            sub.setOnClickListener(this);
+
+            mul.setOnClickListener(this);
+
+            div.setOnClickListener(this);
+
+            equal.setOnClickListener(this);
+        } catch (Exception ignored) {
+
         }
     }
-
+    public void operation() {
+        switch (optr) {
+            case "+":
+                op2 = Integer.parseInt(disp.getText().toString());
+                disp.setText("");
+                op1 = op1 + op2;
+                disp.setText("Result : " + Integer.toString(op1));
+                break;
+            case "-":
+                op2 = Integer.parseInt(disp.getText().toString());
+                disp.setText("");
+                op1 = op1 - op2;
+                disp.setText("Result : " + Integer.toString(op1));
+                break;
+            case "*":
+                op2 = Integer.parseInt(disp.getText().toString());
+                disp.setText("");
+                op1 = op1 * op2;
+                disp.setText("Result : " + Integer.toString(op1));
+                break;
+            case "/":
+                op2 = Integer.parseInt(disp.getText().toString());
+                disp.setText("");
+                op1 = op1 / op2;
+                disp.setText("Result : " + Integer.toString(op1));
+                break;
+        }
+    }
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    public void onClick(View arg0) {
+        Editable str = disp.getText();
+        switch (arg0.getId()) {
+            case R.id.zero:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(zero.getText());
+                disp.setText(str);
+                break;
+            case R.id.one:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(one.getText());
+                disp.setText(str);
+                break;
+            case R.id.two:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(two.getText());
+                disp.setText(str);
+                break;
+            case R.id.three:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(three.getText());
+                disp.setText(str);
+                break;
+            case R.id.four:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(four.getText());
+                disp.setText(str);
+                break;
+            case R.id.five:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(five.getText());
+                disp.setText(str);
+                break;
+            case R.id.six:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(six.getText());
+                disp.setText(str);
+                break;
+            case R.id.seven:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(seven.getText());
+                disp.setText(str);
+                break;
+            case R.id.eight:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(eight.getText());
+                disp.setText(str);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+                break;
+            case R.id.nine:
+                if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                }
+                str = str.append(nine.getText());
+                disp.setText(str);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                break;
+            case R.id.cancel:
+                op1 = 0;
+                op2 = 0;
+                disp.setText("");
+                disp.setHint("Perform Operation :)");
+
+                break;
+            case R.id.add:
+                optr = "+";
+                if (op1 == 0) {
+                    op1 = Integer.parseInt(disp.getText().toString());
+                    disp.setText("");
+                } else if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                } else {
+                    op2 = Integer.parseInt(disp.getText().toString());
+                    disp.setText("");
+                    op1 = op1 + op2;
+                    disp.setText("Result : " + Integer.toString(op1));
+                }
+                break;
+            case R.id.sub:
+                optr = "-";
+                if (op1 == 0) {
+                    op1 = Integer.parseInt(disp.getText().toString());
+                    disp.setText("");
+                } else if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                } else {
+                    op2 = Integer.parseInt(disp.getText().toString());
+                    disp.setText("");
+                    op1 = op1 - op2;
+                    disp.setText("Result : " + Integer.toString(op1));
+                }
+                break;
+            case R.id.mul:
+                optr = "*";
+                if (op1 == 0) {
+                    op1 = Integer.parseInt(disp.getText().toString());
+                    disp.setText("");
+                } else if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                } else {
+                    op2 = Integer.parseInt(disp.getText().toString());
+                    disp.setText("");
+                    op1 = op1 * op2;
+                    disp.setText("Result : " + Integer.toString(op1));
+                }
+                break;
+            case R.id.div:
+                optr = "/";
+                if (op1 == 0) {
+                    op1 = Integer.parseInt(disp.getText().toString());
+                    disp.setText("");
+                } else if (op2 != 0) {
+                    op2 = 0;
+                    disp.setText("");
+                } else {
+                    op2 = Integer.parseInt(disp.getText().toString());
+                    disp.setText("");
+                    op1 = op1 / op2;
+                    disp.setText("Result : " + Integer.toString(op1));
+                }
+                break;
+            case R.id.equal:
+                if (!optr.equals(null)) {
+                    if (op2 != 0) {
+                        switch (optr) {
+                            case "+":
+                                disp.setText("");
+            /*op1 = op1 + op2;*/
+                                disp.setText("Result : " + Integer.toString(op1));
+                                break;
+                            case "-":
+                                disp.setText("");
+            /*
+            							op1 = op1 - op2;*/
+                                disp.setText("Result : " + Integer.toString(op1));
+                                break;
+                            case "*":
+                                disp.setText("");
+            /*
+            							op1 = op1 * op2;*/
+                                disp.setText("Result : " + Integer.toString(op1));
+                                break;
+                            case "/":
+                                disp.setText("");
+            /*
+            							op1 = op1 / op2;*/
+                                disp.setText("Result : " + Integer.toString(op1));
+                                break;
+                        }
+                    } else {
+                        operation();
+                    }
+                }
+                break;
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
