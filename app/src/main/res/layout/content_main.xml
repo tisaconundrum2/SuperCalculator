@@ -6,10 +6,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#fff" >
+    android:background="#fff"
+    >
 
 
-
+    <TextView
+        android:text="Super Calculator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:gravity="center"
+        android:textSize="28sp"
+        />
 
     <EditText
         android:layout_width="fill_parent"
@@ -26,25 +34,25 @@
         android:paddingTop="20dp">
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/seven"
             android:text="7" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/eight"
             android:text="8" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/nine"
             android:text="9" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/div"
             android:text="/" />
@@ -57,25 +65,25 @@
         android:gravity="center"
         android:paddingTop="20dp">
         <Button
-            android:layout_width="52dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/four"
             android:text="4" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/five"
             android:text="5" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/six"
             android:text="6" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/mul"
             android:text="x" />
@@ -90,25 +98,25 @@
         android:paddingTop="20dp">
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/one"
             android:text="1" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/two"
             android:text="2" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/three"
             android:text="3" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/sub"
             android:text="-" />
@@ -122,25 +130,25 @@
         android:gravity="center"
         android:paddingTop="20dp">
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/cancel"
             android:text="C" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/zero"
             android:text="0" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/equal"
             android:text="=" />
 
         <Button
-            android:layout_width="55dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id = "@+id/add"
             android:text="+" />
